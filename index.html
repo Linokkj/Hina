@@ -49,7 +49,6 @@ try {
                         <div class="anime-info">
                             <h3><?php echo htmlspecialchars($anime['titulo']); ?></h3>
                             <p><?php echo mb_strimwidth(htmlspecialchars($anime['sinopse']), 0, 80, "..."); ?></p>
-                            <!-- Link para a página de detalhe/episódios -->
                             <a href="anime.php?id=<?php echo $anime['id']; ?>" class="btn-crunchy">Ver Episódios</a>
                         </div>
                     </div>
