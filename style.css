@@ -1,0 +1,69 @@
+<?php
+// Inclui o ficheiro de ligação à base de dados
+require 'conexao.php';
+
+try {
+    // Consulta para ir buscar os animes à base de dados
+    $stmt = $pdo->query("SELECT * FROM animes ORDER BY id DESC");
+    $animes = $stmt->fetchAll(PDO::FETCH_ASSOC);
+} catch (PDOException $e) {
+    echo "Erro ao carregar os animes: " . $e->getMessage();
+}
+?>
+
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hina - Catálogo de Animes</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <header class="site-header">
+        <div class="logo">
+            <h1>Hina</h1>
+        </div>
+        <nav class="nav-links">
+            <a href="index.php">Início</a>
+            <a href="painel.php">Painel Admin</a>
+        </nav>
+    </header>
+
+    <section class="hero-banner">
+        <div class="hero-content">
+            <h2>Os melhores animes para assistir</h2>
+            <p>Explore o nosso catálogo interativo desenvolvido para o Projeto Integrador.</p>
+        </div>
+    </section>
+
+    <main class="container">
+        <h2>Catálogo de Animes</h2>
+
+        <div class="anime-grid">
+            <?php if (!empty($animes)): ?>
+                <?php foreach ($animes as $anime): ?>
+                    <div class="anime-card">
+                        <img src="<?php echo htmlspecialchars($anime['capa_url']); ?>" alt="Capa do Anime">
+                        <div class="anime-info">
+                            <h3><?php echo htmlspecialchars($anime['titulo']); ?></h3>
+                            <p><?php echo mb_strimwidth(htmlspecialchars($anime['sinopse']), 0, 80, "..."); ?></p>
+                            <!-- Link para a página de detalhe/episódios -->
+                            <a href="anime.php?id=<?php echo $anime['id']; ?>" class="btn-crunchy">Ver Episódios</a>
+                        </div>
+                    </div>
+                <?php endforeach; ?>
+            <?php else: ?>
+                <p>Nenhum anime registado de momento. Adicione através do painel administrativo.</p>
+            <?php endif; ?>
+        </div>
+    </main>
+
+    <!-- Rodapé -->
+    <footer class="site-footer">
+        <p>&copy; 2026 Hina - Trabalho de Conclusão de Curso.</p>
+    </footer>
+
+</body>
+</html>
