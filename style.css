@@ -1,4 +1,4 @@
-/* Configuração Global */
+
 body {
     background-color: #141415;
     color: #ffffff;
@@ -7,7 +7,6 @@ body {
     padding: 0;
 }
 
-/* Cabeçalho */
 .site-header {
     background-color: #0f1015;
     display: flex;
@@ -24,7 +23,7 @@ body {
 }
 
 .logo span {
-    color: #f47521; /* Laranja Crunchyroll */
+    color: #f47521; 
 }
 
 .nav-links a {
@@ -39,7 +38,6 @@ body {
     color: #f47521;
 }
 
-/* Banner de Destaque */
 .hero-banner {
     background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.8)), url('banner-bg.jpg') no-repeat center center/cover;
     padding: 60px 40px;
@@ -57,7 +55,6 @@ body {
     font-size: 16px;
 }
 
-/* Container Principal */
 .container {
     max-width: 1200px;
     margin: 30px auto;
@@ -70,7 +67,6 @@ body {
     margin-bottom: 20px;
 }
 
-/* Grelha de Animes */
 .anime-grid {
     display: flex;
     gap: 20px;
@@ -119,7 +115,6 @@ body {
     margin: 0 0 15px 0;
 }
 
-/* Botão Estilo Crunchyroll */
 .btn-crunchy {
     background-color: #f47521;
     color: white;
@@ -138,7 +133,6 @@ body {
     background-color: #d96316;
 }
 
-/* Rodapé */
 .site-footer {
     text-align: center;
     padding: 20px;
