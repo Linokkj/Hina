@@ -1,69 +1,149 @@
-<?php
-// Inclui o ficheiro de ligação à base de dados
-require 'conexao.php';
-
-try {
-    // Consulta para ir buscar os animes à base de dados
-    $stmt = $pdo->query("SELECT * FROM animes ORDER BY id DESC");
-    $animes = $stmt->fetchAll(PDO::FETCH_ASSOC);
-} catch (PDOException $e) {
-    echo "Erro ao carregar os animes: " . $e->getMessage();
+/* Configuração Global */
+body {
+    background-color: #141415;
+    color: #ffffff;
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
 }
-?>
 
-<!DOCTYPE html>
-<html lang="pt">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Hina - Catálogo de Animes</title>
-    <link rel="stylesheet" href="style.css">
-</head>
-<body>
+/* Cabeçalho */
+.site-header {
+    background-color: #0f1015;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 40px;
+    border-bottom: 2px solid #23252b;
+}
 
-    <header class="site-header">
-        <div class="logo">
-            <h1>Hina</h1>
-        </div>
-        <nav class="nav-links">
-            <a href="index.php">Início</a>
-            <a href="painel.php">Painel Admin</a>
-        </nav>
-    </header>
+.logo h1 {
+    margin: 0;
+    color: #ffffff;
+    font-size: 24px;
+}
 
-    <section class="hero-banner">
-        <div class="hero-content">
-            <h2>Os melhores animes para assistir</h2>
-            <p>Explore o nosso catálogo interativo desenvolvido para o Projeto Integrador.</p>
-        </div>
-    </section>
+.logo span {
+    color: #f47521; /* Laranja Crunchyroll */
+}
 
-    <main class="container">
-        <h2>Catálogo de Animes</h2>
+.nav-links a {
+    color: #cccccc;
+    text-decoration: none;
+    margin-left: 20px;
+    font-weight: bold;
+    transition: color 0.2s;
+}
 
-        <div class="anime-grid">
-            <?php if (!empty($animes)): ?>
-                <?php foreach ($animes as $anime): ?>
-                    <div class="anime-card">
-                        <img src="<?php echo htmlspecialchars($anime['capa_url']); ?>" alt="Capa do Anime">
-                        <div class="anime-info">
-                            <h3><?php echo htmlspecialchars($anime['titulo']); ?></h3>
-                            <p><?php echo mb_strimwidth(htmlspecialchars($anime['sinopse']), 0, 80, "..."); ?></p>
-                            <!-- Link para a página de detalhe/episódios -->
-                            <a href="anime.php?id=<?php echo $anime['id']; ?>" class="btn-crunchy">Ver Episódios</a>
-                        </div>
-                    </div>
-                <?php endforeach; ?>
-            <?php else: ?>
-                <p>Nenhum anime registado de momento. Adicione através do painel administrativo.</p>
-            <?php endif; ?>
-        </div>
-    </main>
+.nav-links a:hover {
+    color: #f47521;
+}
 
-    <!-- Rodapé -->
-    <footer class="site-footer">
-        <p>&copy; 2026 Hina - Trabalho de Conclusão de Curso.</p>
-    </footer>
+/* Banner de Destaque */
+.hero-banner {
+    background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.8)), url('banner-bg.jpg') no-repeat center center/cover;
+    padding: 60px 40px;
+    text-align: center;
+}
 
-</body>
-</html>
+.hero-content h2 {
+    font-size: 32px;
+    color: #ffffff;
+    margin-bottom: 10px;
+}
+
+.hero-content p {
+    color: #aaaaaa;
+    font-size: 16px;
+}
+
+/* Container Principal */
+.container {
+    max-width: 1200px;
+    margin: 30px auto;
+    padding: 0 20px;
+}
+
+.container > h2 {
+    border-left: 4px solid #f47521;
+    padding-left: 10px;
+    margin-bottom: 20px;
+}
+
+/* Grelha de Animes */
+.anime-grid {
+    display: flex;
+    gap: 20px;
+    flex-wrap: wrap;
+}
+
+.anime-card {
+    background-color: #23252b;
+    border-radius: 8px;
+    overflow: hidden;
+    width: 220px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+    transition: transform 0.2s ease;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.anime-card:hover {
+    transform: translateY(-5px);
+}
+
+.anime-card img {
+    width: 100%;
+    height: 300px;
+    object-fit: cover;
+}
+
+.anime-info {
+    padding: 15px;
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+    justify-content: space-between;
+}
+
+.anime-info h3 {
+    font-size: 16px;
+    margin: 0 0 8px 0;
+    color: #ffffff;
+}
+
+.anime-info p {
+    font-size: 13px;
+    color: #aaaaaa;
+    margin: 0 0 15px 0;
+}
+
+/* Botão Estilo Crunchyroll */
+.btn-crunchy {
+    background-color: #f47521;
+    color: white;
+    border: none;
+    padding: 10px;
+    border-radius: 4px;
+    cursor: pointer;
+    font-weight: bold;
+    text-align: center;
+    text-decoration: none;
+    display: block;
+    transition: background 0.2s;
+}
+
+.btn-crunchy:hover {
+    background-color: #d96316;
+}
+
+/* Rodapé */
+.site-footer {
+    text-align: center;
+    padding: 20px;
+    background-color: #0f1015;
+    color: #777777;
+    font-size: 14px;
+    margin-top: 40px;
+}
