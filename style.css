@@ -1,4 +1,3 @@
-
 body {
     background-color: #141415;
     color: #ffffff;
@@ -23,7 +22,7 @@ body {
 }
 
 .logo span {
-    color: #f47521; 
+    color: #ff0080; 
 }
 
 .nav-links a {
@@ -35,7 +34,7 @@ body {
 }
 
 .nav-links a:hover {
-    color: #f47521;
+    color: #ff0080;
 }
 
 .hero-banner {
@@ -62,7 +61,7 @@ body {
 }
 
 .container > h2 {
-    border-left: 4px solid #f47521;
+    border-left: 4px solid #ff0080;
     padding-left: 10px;
     margin-bottom: 20px;
 }
@@ -115,8 +114,9 @@ body {
     margin: 0 0 15px 0;
 }
 
-.btn-crunchy {
-    background-color: #f47521;
+/* Botão atualizado para Hina */
+.btn-hina {
+    background-color: #ff0080;
     color: white;
     border: none;
     padding: 10px;
@@ -129,8 +129,8 @@ body {
     transition: background 0.2s;
 }
 
-.btn-crunchy:hover {
-    background-color: #d96316;
+.btn-hina:hover {
+    background-color: #ff3399; /* Tom ligeiramente mais claro ao passar o rato */
 }
 
 .site-footer {
