@@ -2,7 +2,6 @@
 require 'conexao.php';
 
 try {
-    // Consulta para ir buscar os animes à base de dados
     $stmt = $pdo->query("SELECT * FROM animes ORDER BY id DESC");
     $animes = $stmt->fetchAll(PDO::FETCH_ASSOC);
 } catch (PDOException $e) {
@@ -22,7 +21,7 @@ try {
 
     <header class="site-header">
         <div class="logo">
-            <h1>Hina</h1>
+            <h1>Hina<span>.</span></h1>
         </div>
         <nav class="nav-links">
             <a href="index.php">Início</a>
@@ -48,7 +47,7 @@ try {
                         <div class="anime-info">
                             <h3><?php echo htmlspecialchars($anime['titulo']); ?></h3>
                             <p><?php echo mb_strimwidth(htmlspecialchars($anime['sinopse']), 0, 80, "..."); ?></p>
-                            <a href="anime.php?id=<?php echo $anime['id']; ?>" class="btn-crunchy">Ver Episódios</a>
+                            <a href="anime.php?id=<?php echo $anime['id']; ?>" class="btn-hina">Ver Episódios</a>
                         </div>
                     </div>
                 <?php endforeach; ?>
