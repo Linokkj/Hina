@@ -15,11 +15,25 @@ body {
     border-bottom: 2px solid #23252b;
 }
 
+.logo {
+
+    display: flex;
+    align-items: center;
+}
+
 .logo h1 {
     margin: 0;
     color: #ffffff;
     font-size: 24px;
 }
+
+.logo-img {
+    margin: 0;
+    width: 30px;
+    display: flex;
+    padding-right: 15px;
+
+} 
 
 .logo span {
     color: #ff0080; 
