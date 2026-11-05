@@ -1,0 +1,13 @@
+TCC-NomeDoProjeto/
+├── README.md
+├── docs/
+│   ├── requisitos.md
+│   ├── arquitetura.png
+│   ├── banco-der.png
+│   └── prototipos/
+│       ├── tela-inicial.png
+│       ├── tela-cadastro.png
+│       └── tela-consulta.png
+├── frontend/
+├── backend/
+└── app/
