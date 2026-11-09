@@ -155,3 +155,127 @@ body {
     font-size: 14px;
     margin-top: 40px;
 }
+
+/* --- Estilos da Página de Login --- */
+.login-body {
+    background-color: #141415;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    margin: 0;
+    font-family: Arial, sans-serif;
+    color: #ffffff;
+}
+
+.login-card {
+    width: 100%;
+    max-width: 400px;
+    text-align: center;
+    padding: 20px;
+    background-color: #1a1b22;
+    border-radius: 8px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.5);
+    border: 1px solid #23252b;
+}
+
+.login-card .logo {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+    margin-bottom: 25px;
+    text-decoration: none;
+}
+
+.login-card .logo-img {
+    width: 42px;
+    height: 42px;
+    object-fit: cover;
+    border-radius: 30% 48% 48% 30%;
+}
+
+.login-logo h1 {
+    font-size: 28px;
+    margin: 0;
+    letter-spacing: 1px;
+    color: #ffffff;
+}
+
+.login-card h2 {
+    font-size: 22px;
+    margin-bottom: 25px;
+    font-weight: normal;
+    color: #ccc;
+}
+
+.login-form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    text-align: left;
+}
+
+.login-form label {
+    font-size: 13px;
+    color: #aaa;
+}
+
+.login-input {
+    width: 100%;
+    padding: 14px;
+    background-color: #23252b;
+    border: 1px solid #3f4254;
+    border-radius: 4px;
+    color: #ffffff;
+    font-size: 15px;
+    box-sizing: border-box;
+    outline: none;
+    transition: border-color 0.2s;
+}
+
+.login-input:focus {
+    border-color: #ff0080;
+}
+
+.btn-login {
+    background-color: #ff0080;
+    color: white;
+    border: none;
+    padding: 12px;
+    border-radius: 4px;
+    font-weight: bold;
+    font-size: 15px;
+    cursor: pointer;
+    transition: background 0.2s;
+    margin-top: 10px;
+    width: 100%;
+}
+
+.btn-login:hover {
+    background-color: #ff3399;
+}
+
+.login-links {
+    margin-top: 25px;
+    display: flex;
+    justify-content: space-between;
+    font-size: 13px;
+}
+
+.login-links a {
+    color: #ff0080;
+    text-decoration: none;
+}
+
+.login-links a:hover {
+    text-decoration: underline;
+}
+
+.login-footer {
+    margin-top: 30px;
+    font-size: 12px;
+    color: #777777;
+    text-align: center;
+}
