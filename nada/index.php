@@ -22,7 +22,7 @@ try {
     <header class="site-header">
         <a href="index.php" class="logo">
             <img src="https://i.pinimg.com/236x/f7/6c/34/f76c34510ed704c7c0f9a1423fc3008f.jpg" class="logo-img" alt="Logo Hina">
-            <h1>Hina<span>.</span></h1>
+            <h1>Hina</h1>
         </a>
         <nav class="nav-links">
             <a href="index.php">Início</a>
