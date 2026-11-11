@@ -38,7 +38,7 @@ body {
     width: 36px;
     height: 36px;
     object-fit: cover;
-    border-radius: 30% 48% 48% 30%;
+    border-radius: 14px;
 }
 
 .nav-links a {
