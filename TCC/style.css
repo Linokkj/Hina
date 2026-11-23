@@ -1,0 +1,408 @@
+:root {
+    --bg-main: #000000;
+    --bg-header: #141519;
+    --bg-card: #141519;
+    --bg-card-hover: #23252b;
+    --accent-primary: #ff0080;
+    --accent-hover: #ff3399;
+    --accent-gold: #f5c518;
+    --text-main: #ffffff;
+    --text-muted: #a0a0a0;
+    --border-color: #23252b;
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background-color: var(--bg-main);
+    color: var(--text-main);
+    font-family: 'Lato', 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+    line-height: 1.5;
+    -webkit-font-smoothing: antialiased;
+}
+
+/* --- Cabeçalho Fixo (Header) --- */
+.site-header {
+    background-color: var(--bg-header);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 12px 4%;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    border-bottom: 1px solid var(--border-color);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.6);
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    text-decoration: none;
+    color: inherit;
+}
+
+.logo h1 {
+    font-size: 24px;
+    font-weight: 800;
+    letter-spacing: -0.5px;
+    color: var(--text-main);
+}
+
+.logo span {
+    color: var(--accent-primary);
+}
+
+.logo-img {
+    width: 38px;
+    height: 38px;
+    object-fit: cover;
+    border-radius: 50%;
+    border: 2px solid var(--accent-primary);
+}
+
+.nav-links {
+    display: flex;
+    align-items: center;
+    gap: 24px;
+}
+
+.nav-links a {
+    color: #dadada;
+    text-decoration: none;
+    font-size: 15px;
+    font-weight: 600;
+    transition: color 0.2s ease;
+}
+
+.nav-links a:hover {
+    color: var(--accent-primary);
+}
+
+/* --- Hero Banner (Destaque Principal) --- */
+.hero-banner {
+    position: relative;
+    background: linear-gradient(90deg, #000000 15%, rgba(0, 0, 0, 0.65) 55%, rgba(255, 0, 128, 0.15) 100%),
+                url('banner-bg.jpg') no-repeat center center/cover;
+    background-color: #141519;
+    padding: 80px 4%;
+    border-bottom: 1px solid var(--border-color);
+}
+
+.hero-content {
+    max-width: 650px;
+}
+
+.hero-content h2 {
+    font-size: 38px;
+    font-weight: 800;
+    color: var(--text-main);
+    margin-bottom: 14px;
+    line-height: 1.15;
+}
+
+.hero-content p {
+    color: #cccccc;
+    font-size: 16px;
+    margin-bottom: 24px;
+}
+
+/* --- Contentores e Títulos de Secção --- */
+.container {
+    max-width: 1360px;
+    margin: 40px auto;
+    padding: 0 4%;
+}
+
+.container > h2 {
+    font-size: 22px;
+    font-weight: 700;
+    border-left: 4px solid var(--accent-primary);
+    padding-left: 12px;
+    margin-bottom: 24px;
+    letter-spacing: 0.3px;
+}
+
+/* --- Grelha de Animes (Grid Responsivo Estilo Crunchyroll) --- */
+.anime-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(210px, 1fr));
+    gap: 24px;
+}
+
+.anime-card {
+    background-color: var(--bg-card);
+    border-radius: 6px;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    transition: transform 0.25s ease, background-color 0.25s ease, box-shadow 0.25s ease;
+    border: 1px solid transparent;
+}
+
+.anime-card:hover {
+    transform: translateY(-6px);
+    background-color: var(--bg-card-hover);
+    border-color: rgba(255, 0, 128, 0.4);
+    box-shadow: 0 10px 24px rgba(0, 0, 0, 0.75);
+}
+
+/* --- Capa e Insígnia de Nota --- */
+.image-container {
+    position: relative;
+    width: 100%;
+    aspect-ratio: 2 / 3;
+    overflow: hidden;
+    background-color: #1f2026;
+}
+
+.anime-card img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.35s ease;
+}
+
+.anime-card:hover img {
+    transform: scale(1.04);
+}
+
+.imdb-badge {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background-color: rgba(15, 16, 21, 0.9);
+    color: var(--accent-gold);
+    padding: 4px 8px;
+    border-radius: 4px;
+    font-weight: 700;
+    font-size: 13px;
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    border: 1px solid rgba(245, 197, 24, 0.5);
+    backdrop-filter: blur(4px);
+}
+
+/* --- Informações do Card --- */
+.anime-info {
+    padding: 14px;
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+    justify-content: space-between;
+}
+
+.anime-info h3 {
+    font-size: 16px;
+    font-weight: 700;
+    margin-bottom: 6px;
+    color: var(--text-main);
+    display: -webkit-box;
+    -webkit-line-clamp: 1;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+}
+
+.anime-info p {
+    font-size: 13px;
+    color: var(--text-muted);
+    margin-bottom: 16px;
+    line-height: 1.4;
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+}
+
+/* --- Botões --- */
+.btn-hina {
+    background-color: var(--accent-primary);
+    color: #ffffff;
+    border: none;
+    padding: 10px 14px;
+    border-radius: 4px;
+    cursor: pointer;
+    font-weight: 700;
+    font-size: 13px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    text-align: center;
+    text-decoration: none;
+    display: block;
+    transition: background-color 0.2s ease;
+}
+
+.btn-hina:hover {
+    background-color: var(--accent-hover);
+}
+
+.card-buttons {
+    display: flex;
+    gap: 8px;
+    margin-top: 12px;
+}
+
+.btn-download {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 6px;
+    background-color: #2e7d32;
+    color: #ffffff;
+    padding: 8px 12px;
+    border-radius: 4px;
+    text-decoration: none;
+    font-weight: 700;
+    font-size: 13px;
+    transition: background-color 0.2s ease;
+}
+
+.btn-download:hover {
+    background-color: #1b5e20;
+}
+
+/* --- Rodapé --- */
+.site-footer {
+    text-align: center;
+    padding: 28px 20px;
+    background-color: var(--bg-header);
+    color: #777777;
+    font-size: 13px;
+    margin-top: 60px;
+    border-top: 1px solid var(--border-color);
+}
+
+/* --- Estilos da Página de Login --- */
+.login-body {
+    background-color: var(--bg-main);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    padding: 20px;
+}
+
+.login-card {
+    width: 100%;
+    max-width: 400px;
+    text-align: center;
+    padding: 30px 24px;
+    background-color: var(--bg-header);
+    border-radius: 8px;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.7);
+    border: 1px solid var(--border-color);
+}
+
+.login-card .logo {
+    justify-content: center;
+    margin-bottom: 20px;
+}
+
+.login-card h2 {
+    font-size: 20px;
+    margin-bottom: 24px;
+    font-weight: 400;
+    color: #cccccc;
+}
+
+.login-form {
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+    text-align: left;
+}
+
+.login-form label {
+    font-size: 13px;
+    color: var(--text-muted);
+    font-weight: 600;
+}
+
+.login-input {
+    width: 100%;
+    padding: 12px 14px;
+    background-color: #23252b;
+    border: 1px solid #3f4254;
+    border-radius: 4px;
+    color: var(--text-main);
+    font-size: 15px;
+    outline: none;
+    transition: border-color 0.2s ease;
+}
+
+.login-input:focus {
+    border-color: var(--accent-primary);
+}
+
+.btn-login {
+    background-color: var(--accent-primary);
+    color: #ffffff;
+    border: none;
+    padding: 12px;
+    border-radius: 4px;
+    font-weight: 700;
+    font-size: 15px;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+    margin-top: 8px;
+    width: 100%;
+}
+
+.btn-login:hover {
+    background-color: var(--accent-hover);
+}
+
+.login-links {
+    margin-top: 22px;
+    display: flex;
+    justify-content: space-between;
+    font-size: 13px;
+}
+
+.login-links a {
+    color: var(--accent-primary);
+    text-decoration: none;
+}
+
+.login-links a:hover {
+    text-decoration: underline;
+}
+
+.login-footer {
+    margin-top: 28px;
+    font-size: 12px;
+    color: #777777;
+    text-align: center;
+}
+
+/* --- Responsividade Mobile --- */
+@media (max-width: 600px) {
+    .site-header {
+        padding: 12px 16px;
+    }
+
+    .nav-links {
+        gap: 14px;
+    }
+
+    .hero-banner {
+        padding: 50px 16px;
+    }
+
+    .hero-content h2 {
+        font-size: 26px;
+    }
+
+    .anime-grid {
+        grid-template-columns: repeat(auto-fill, minmax(155px, 1fr));
+        gap: 14px;
+    }
+}
